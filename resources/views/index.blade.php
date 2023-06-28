@@ -11,86 +11,36 @@
       <div class="container">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">01</li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
+            @foreach ($slides as $index => $slide)
+            <li data-target="#carouselExampleIndicators" data-slide-to="{{$index}}"  {{ $index == 0 ? 'class=active' : '' }}></li>
+            @endforeach
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            @foreach ($slides as $index => $slide)
+            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
               <div class="slider_item-box">
                 <div class="slider_item-container">
                   <div class="slider_item-detail">
                     <h1>
-                      Make Best <br />
-                      <span>Your Website</span>
+                      @php
+                      $titleParts = explode('*', $slide->title);
+                    @endphp
+                    {{ $titleParts[0] }}
+                    @if (isset($titleParts[1]))
+                    <br/>
+                    <span>{{ $titleParts[1] }}</span>
+                    @endif
                     </h1>
                     <div>
-                      <form action="">
-                        <input type="text" placeholder="Enter your business name" />
-                        <button type="submit">
-                          Submit
-                        </button>
-                      </form>
-                    </div>
-                    <div>
                       <a href="">
-                        Read More
+                        Download App
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
-              <div class="slider_item-box">
-                <div class="slider_item-container">
-                  <div class="slider_item-detail">
-                    <h1>
-                      Make Best <br />
-                      <span>Your Website</span>
-                    </h1>
-                    <div>
-                      <form action="">
-                        <input type="text" placeholder="Enter your business name" />
-                        <button type="submit">
-                          Submit
-                        </button>
-                      </form>
-                    </div>
-                    <div>
-                      <a href="">
-                        Read More
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="slider_item-box">
-                <div class="slider_item-container">
-                  <div class="slider_item-detail">
-                    <h1>
-                      Make Best <br />
-                      <span>Your Website</span>
-                    </h1>
-                    <div>
-                      <form action="">
-                        <input type="text" placeholder="Enter your business name" />
-                        <button type="submit">
-                          Submit
-                        </button>
-                      </form>
-                    </div>
-                    <div>
-                      <a href="">
-                        Read More
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            @endforeach
           </div>
         </div>
       </div>
@@ -119,7 +69,7 @@
       <div class="col-md-6 col-lg-4">
         <div class="detail-box">
           <h3>
-            About Us
+            About The App
           </h3>
           <p>
             It is a long established fact that a reader will be distracted by
@@ -137,275 +87,42 @@
 
   <!-- end about section -->
 
-  <!-- business section -->
 
-  <section class="business_section layout_padding">
-    <div class="container">
-      <h2>
-        Gets your business discovered
-      </h2>
-      <p>
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum is that it has a more-or-less normal distribution of
-        letters,
-      </p>
-    </div>
-    <div class="business_container">
-      <div class="content-box box-1">
-        <div class="detail">
-          <h3>
-            Not just a website
-          </h3>
-          <p>
-            It is a long established fact that a r <br />
-            eader will be distracted by the readable content <br />
-            of a page when looking at i <br />
-            ts layout. The point of usin <br />
-            g Lorem Ipsum is that it has a more-or-less normal <br />
-            distribution of letters,
-          </p>
-        </div>
-        <div>
-          <a href="">
-            read More
-          </a>
-        </div>
-      </div>
-      <div class="content-box box-2">
-        <div class="detail">
-          <h3>
-            Hosting & maintenance included
-          </h3>
-          <p>
-            It is a long established fact that a r <br />
-            eader will be distracted by the readable content <br />
-            of a page when looking at i <br />
-            ts layout. The point of usin <br />
-            g Lorem Ipsum is that it has a more-or-less normal <br />
-            distribution of letters,
-          </p>
-        </div>
-        <div>
-          <a href="">
-            read More
-          </a>
-        </div>
-      </div>
-      <div class="content-box box-3">
-        <div class="detail">
-          <h3>
-            Connect with your customers
-          </h3>
-          <p>
-            It is a long established fact that a r <br />
-            eader will be distracted by the readable content <br />
-            of a page when looking at i <br />
-            ts layout. The point of usin <br />
-            g Lorem Ipsum is that it has a more-or-less normal <br />
-            distribution of letters,
-          </p>
-        </div>
-        <div>
-          <a href="">
-            read More
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end business section -->
-
-  <!-- online section -->
-
-  <section class="online_section layout_padding">
-    <div class="d-flex justify-content-center">
-      <h2>
-        How we get you noticed online
-      </h2>
-    </div>
-    <div class="layout_padding">
-      <div class="container-fluid ">
-        <div class="row ">
-          <div class="col-md-5 offset-md-1">
-            <div class="img-box">
-              <div class="box-1">
-                <div>
-                  <img src="{{asset('assets/images/o-1.png')}}" alt="" />
-                </div>
-                <div class="">
-                  <img src="{{asset('assets/images/o-2.png')}}" alt="" />
-                </div>
-              </div>
-              <div class="box-2 ">
-                <div>
-                  <img src="{{asset('assets/images/o-3.png')}}" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="detail-box">
-              <h2 class="number-style">
-                01
-              </h2>
-              <p>
-                There are many variations of passages of Lorem Ipsum
-                available, but the majority have suffered alteration in some
-                form, by injected humour, or randomised words which don't look
-                even slightly believable. If you are going to use a passage of
-                Lorem Ipsum, you need to be
-              </p>
-              <div>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end online section -->
 
   <!-- client section -->
   <section class="client_section layout_padding">
     <div class="container">
       <div class="d-flex justify-content-center">
         <h2>
-          Testimonial
+          App Screens
         </h2>
       </div>
       <div id="carouselExample2Indicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExample2Indicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExample2Indicators" data-slide-to="1"></li>
-          <li data-target="#carouselExample2Indicators" data-slide-to="2"></li>
+          @foreach ($products as $index => $product)
+          <li data-target="#carouselExample2Indicators" data-slide-to="{{$index}}"  {{ $index == 0 ? 'class=active' : '' }}></li>
+          @endforeach
         </ol>
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          @foreach ($products as $index => $product)
+          <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
             <div class="client_container">
-              <div class="row">
-                <div class="col-md-6">
                   <div class="client_box">
                     <div class="detail_box">
                       <div class="img_box">
-                        <img src="{{asset('assets/images/client-1.jpg')}}" />
+                        <img src="{{$product->image_path}}" />
                       </div>
                       <h5>
-                        zabih jo
+                        {{$product -> name}}
                       </h5>
                       <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
+                        {{$product -> description}}
                       </p>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="client_box">
-                    <div class="detail_box">
-                      <div class="img_box">
-                        <img src="{{asset('assets/images/client-2.jpg')}}" />
-                      </div>
-                      <h5>
-                        zabih jo
-                      </h5>
-                      <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="client_container">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="client_box">
-                    <div class="detail_box">
-                      <div class="img_box">
-                        <img src="{{asset('assets/images/client-1.jpg')}}" />
-                      </div>
-                      <h5>
-                        zabih jo
-                      </h5>
-                      <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="client_box">
-                    <div class="detail_box">
-                      <div class="img_box">
-                        <img src="{{asset('assets/images/client-2.jpg')}}" />
-                      </div>
-                      <h5>
-                        zabih jo
-                      </h5>
-                      <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="client_container">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="client_box">
-                    <div class="detail_box">
-                      <div class="img_box">
-                        <img src="{{asset('assets/images/client-1.jpg')}}" />
-                      </div>
-                      <h5>
-                        zabih jo
-                      </h5>
-                      <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="client_box">
-                    <div class="detail_box">
-                      <div class="img_box">
-                        <img src="{{asset('assets/images/client-2.jpg')}}" />
-                      </div>
-                      <h5>
-                        zabih jo
-                      </h5>
-                      <p>
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
-                        from 45 BC, making it over
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
 
@@ -418,7 +135,7 @@
   <section class="info_section layout_padding">
     <div class="info-logo">
       <h2>
-        TNI0
+        Mezo News
       </h2>
     </div>
     <div class="container">
@@ -433,7 +150,7 @@
             </div>
             <div class="detail-box">
               <p>
-                Lorem Ipsum is simply dummy text
+                Khartoum , Jabra
               </p>
             </div>
           </div>
@@ -445,7 +162,7 @@
             </div>
             <div class="detail-box">
               <p>
-                +02 1234567890
+                +249 912345678
               </p>
             </div>
           </div>
@@ -457,29 +174,10 @@
             </div>
             <div class="detail-box">
               <p>
-                demo@gmail.com
+                Info@RozerTechnology.com
               </p>
             </div>
           </div>
-        </a>
-      </div>
-    </div>
-    <div class="partner-box">
-      <h4>
-        Our Partner
-      </h4>
-      <div class="box">
-        <a href="">
-          <img src="{{asset('assets/images/google.png')}}" alt="">
-        </a>
-        <a href="">
-          <img src="{{asset('assets/images/yahoo.png')}}" alt="">
-        </a>
-        <a href="">
-          <img src="{{asset('assets/images/mastercard.png')}}" alt="">
-        </a>
-        <a href="">
-          <img src="{{asset('assets/images/jcb.png')}}" alt="">
         </a>
       </div>
     </div>
@@ -490,12 +188,7 @@
   <!-- end info_section -->
 
   <!-- footer section -->
-  <section class="container-fluid footer_section">
-    <p>
-      &copy; 2020 All Rights Reserved. Design by
-      <a href="https://html.design/">Free Html Templates</a> Distribution <a href="https://themewagon.com">ThemeWagon</a>
-    </p>
-  </section>
+  @include('layouts._footer')
   <!-- footer section -->
 
   
