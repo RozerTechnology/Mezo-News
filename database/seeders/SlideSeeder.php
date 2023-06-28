@@ -17,19 +17,19 @@ class SlideSeeder extends Seeder
 
         $slides = [
             [
-                'title' => 'Meet * Team!',
+                'title' => 'With Mezo News you can get All world news in * one Space!',
                 'subtitle' => '/creative * one page template.',
                 'description' => 'We are a team of professionals',
                 'image' => 'slide-1.jpg'
              ],
              [
-                'title' => 'Meet * Brandi!',
+                'title' => 'In Our App you can enjoy * the news Services!',
                 'subtitle' => '/creative * one page template.',
                 'description' => 'We are a team of professionals',
                 'image' => 'slide-2.jpg'
              ],
              [
-                'title' => 'Meet * Team!',
+                'title' => 'Get Real time notification  * fast and Safty!',
                 'subtitle' => '/creative * one page template.',
                 'description' => 'We are a team of professionals',
                 'image' => 'slide-3.jpg'
